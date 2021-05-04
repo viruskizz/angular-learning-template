@@ -1,0 +1,16 @@
+<div class="container" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <h1 class="header">HOME {{ title }}</h1>
+  <h4>Total Like = {{totalLike}}</h4>
+  <button
+          mat-flat-button color="primary"
+          aria-label="Example icon button with a home icon"
+          (click)="goProfile()"
+          [disabled]="isDisable">Click</button>
+
+  <!-- Card Looping-->
+  <app-my-card
+     *ngFor="let element of profiles"
+     [profile]="element"
+     (liked)="onLiked($event)"
+  ></app-my-card>
+</div>

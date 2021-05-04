@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <img mat-card-avatar [src]="profile.avatarImg" alt="cover-image">
+        <mat-card-title>{{profile.title}}</mat-card-title>
+        <mat-card-subtitle> {{profile.subtitle}} </mat-card-subtitle>
+    </mat-card-header>
+    <img *ngIf="profile.img" mat-card-image [src]="profile.img" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>{{profile.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+            mat-stroked-button
+            (click)="onLike()"
+            [matBadge]="profile.liked"
+            [matBadgeHidden]="profile.liked === 0">LIKE</button>
+
+        <span style="margin-right: 10px"></span>
+
+        <button mat-stroked-button [routerLink]="'/profile/' + profile.id">DETAIL</button>
+    </mat-card-actions>
+</mat-card>
